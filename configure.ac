@@ -24,7 +24,6 @@ AC_C_CONST
 AC_TYPE_MODE_T
 AC_TYPE_OFF_T
 AC_TYPE_SIZE_T
-AC_TYPE_UINT8_T
 
 # Checks for library functions.
 AC_FUNC_REALLOC
