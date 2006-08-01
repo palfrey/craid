@@ -79,7 +79,8 @@ static int craid_getattr(const char *path, struct stat *stbuf)
     memset(stbuf, 0, sizeof(struct stat));
 	g_hash_table_foreach(dirs,getsize,&po);
 	stbuf->st_size = po.ret;
-    res = -ENOENT;
+    //res = -ENOENT;
+    res = 0;
     return res;
 }
 
@@ -174,6 +175,11 @@ int main(int argc, char *argv[])
 		printf("place: %s ",place);
 		craid_dir *dir = (craid_dir*)malloc(sizeof(craid_dir));
 		dir->name = g_strdup_printf("%s/%s",cwd,place);
+		if (!fexists(dir->name))
+		{
+			printf("Panic! Source dir %s doesn't exist!\n",dir->name);
+			exit(EXIT_FAILURE);
+		}
 		char* uuid_path = g_strdup_printf("%s/%s",dir->name,UUID_FILE);
 		char tuid[37];
 		if (!fexists(uuid_path))
