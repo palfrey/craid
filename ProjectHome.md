@@ -1,0 +1,1 @@
+Throw a bunch of disks in a machine, get one big storage space back. No other configuration needed, upgrading is as easy as power down, add a new drive, power up. Guaranteed no loss of data in the case of single drive failure. It Just Works for RAID.
